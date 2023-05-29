@@ -3,26 +3,26 @@ require_relative 'article'
 require_relative 'magazine'
 
 # Create some instances
-author1 = Author.new("John Doe")
-author2 = Author.new("Jane Smith")
-magazine1 = Magazine.new("Fashion Magazine", "Fashion")
-magazine2 = Magazine.new("Tech Magazine", "Technology")
+author1 = Author.new("Bellah Ellam")
+author2 = Author.new("Austin Odhiambo")
+magazine1 = Magazine.new("Sports Magazine", "Sports")
+magazine2 = Magazine.new("Lifestyle Magazine", "Lifestyle")
 
 # Create articles and associate them with authors and magazines
-author1.add_article(magazine1, "Latest Fashion Trends")
-author1.add_article(magazine2, "Artificial Intelligence in Fashion")
-author2.add_article(magazine1, "10 Styling Tips for Every Season")
-author2.add_article(magazine2, "The Future of Tech Fashion")
+author1.add_article(magazine1, "Latest Sports Results")
+author1.add_article(magazine2, "A weight loss journey")
+author2.add_article(magazine1, "Crowning Premier League champions")
+author2.add_article(magazine2, "Why lab-grown meat is not good for your health")
 
 # Accessing object relationships
 article1 = author1.articles.first
-puts article1.author.name # John Doe
-puts article1.magazine.name # Fashion Magazine
+puts article1.author.name # Bellah Ellam
+puts article1.magazine.name # Sports Magazine
 
-puts magazine1.contributors.map(&:name) # ["John Doe", "Jane Smith"]
-puts author1.magazines.map(&:name) # ["Fashion Magazine", "Tech Magazine"]
+puts magazine1.contributors.map(&:name) # ["Bellah Ellam", "Austin Odhiambo"]
+puts author1.magazines.map(&:name) # ["Sports Magazine", "Lifestyle Magazine"]
 
 # Accessing associations and aggregate methods
-magazine = Magazine.find_by_name("Fashion Magazine")
-puts magazine.article_titles # ["Latest Fashion Trends", "10 Styling Tips for Every Season"]
-puts magazine.contributing_authors.map(&:name) # ["John Doe", "Jane Smith"]
+magazine = Magazine.find_by_name("Sports Magazine")
+puts magazine.article_titles # ["Latest Sports Results", "Crowning Premier League champions"]
+puts magazine.contributing_authors.map(&:name) # ["Bellah Ellam", "Austin Odhiambo"]
